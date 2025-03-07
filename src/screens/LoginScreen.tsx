@@ -1,20 +1,23 @@
-// LoginScreen.js
+// src/screens/LoginScreen.tsx
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet, Alert } from 'react-native';
-import { firebase } from './firebaseConfig';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import Button from '../components/Button';
+import colors from '../constants/colors';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
-    try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      navigation.replace('Home'); // Navegar para a tela principal após login bem-sucedido
-    } catch (error) {
-      Alert.alert('Erro', error.message);
-    }
+  const handleLogin = () => {
+    console.log('Email:', email);
+    console.log('Password:', password);
+    // Lógica de autenticação aqui
+    navigation.navigate('Home');
   };
+
+  const handleRecuper = () =>{
+
+  }
 
   return (
     <View style={styles.container}>
@@ -24,22 +27,19 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
-        keyboardType="email-address"
       />
       <TextInput
         style={styles.input}
         placeholder="Senha"
+        secureTextEntry
         value={password}
         onChangeText={setPassword}
-        secureTextEntry
       />
-      <Button title="Entrar" onPress={handleLogin} />
-      <Text style={styles.registerText}>
-        Não tem uma conta?{' '}
-        <Text style={styles.link} onPress={() => navigation.navigate('Register')}>
-          Registre-se
-        </Text>
-      </Text>
+      <Text style={styles.link} onPress={handleRecuper}>Esqueceu a senha?</Text>
+      <Button title="Entrar" onPress={handleLogin} style={{ marginTop: 10}} />
+      <Button
+        title="Registrar-se"
+        onPress={() => navigation.navigate('Register')} style={{ marginTop: 10}}      />
     </View>
   );
 };
@@ -47,34 +47,34 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: colors.greenBackground,
     padding: 20,
+    justifyContent: 'center',
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#1D361F',
-    marginBottom: 40,
+    fontSize: 24,
+    color: colors.greenDark,
+    marginBottom: 20,
+    textAlign: 'center',
   },
   input: {
-    width: '100%',
-    height: 50,
-    borderColor: '#1D361F',
-    borderWidth: 1,
-    borderRadius: 5,
+    backgroundColor: colors.white,
+    padding: 15,
+    borderRadius: 10,
     marginBottom: 15,
-    paddingLeft: 10,
-  },
-  registerText: {
-    marginTop: 20,
-    color: '#1D361F',
   },
   link: {
-    color: '#1D361F',
+    color: colors.greenDark,
+    marginTop: 1,
+    textAlign: 'center',
+    fontSize: 16,
     fontWeight: 'bold',
-  },
+    textDecorationLine: 'underline',
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    alignSelf: 'center',
+  }
 });
 
 export default LoginScreen;
