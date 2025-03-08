@@ -1,11 +1,14 @@
-// src/components/Button.jsx
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import colors from "../constants/colors";
+import colors from '../constants/colors';
 
-const Button = ({ title, onPress, style }) => {
+const Button = ({ title, onPress, style, disabled }) => {
   return (
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.button, style, disabled && styles.disabledButton]}
+      disabled={disabled}
+    >
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -22,6 +25,10 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  disabledButton: {
+    backgroundColor: colors.gray, // Cor de fundo quando o botão está desabilitado
+    opacity: 0.6, // Reduz a opacidade para indicar que o botão está desabilitado
   },
 });
 

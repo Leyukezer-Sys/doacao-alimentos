@@ -5,7 +5,11 @@ import LoginScreen from "./src/screens/LoginScreen";
 import RegisterScreen from "./src/screens/RegisterScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
+import DonateScreen from "./src/screens/DonateScreen";
+import ReceiveScreen from "./src/screens/ReceiveScreen";
 import { ThemeProvider } from "./src/context/ThemeContext";
+import Toast from "react-native-toast-message";
+import AddDonateScreen from "./src/screens/AddDonateScreen";
 
 const Stack = createStackNavigator();
 
@@ -38,8 +42,27 @@ const App = () => {
             component={ProfileScreen}
             options={{ title: "Perfil" }}
           />
+          {/* Tela de Doacao */}
+          <Stack.Screen
+            name="Donate"
+            component={DonateScreen}
+            options={{ title: "Doações" }}
+          />
+          {/* Tela de Adicionar Doacao */}
+          <Stack.Screen
+            name="AddDonate"
+            component={AddDonateScreen}
+            options={{ title: "Doações" }}
+          />
+          {/* Tela de ver Doacoes */}
+          <Stack.Screen
+            name="Receive"
+            component={ReceiveScreen}
+            options={{ title: "Doações" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
+      <Toast />
     </ThemeProvider>
   );
 };

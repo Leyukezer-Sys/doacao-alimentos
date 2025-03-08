@@ -35,3 +35,8 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 src/api/api-key.js
+src/api/api-key.ts
+src/api/api-key.ts
+src/api/ors-key.ts
+src/api/api-key.ts
+src/api/api-key.ts

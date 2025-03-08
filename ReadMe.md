@@ -13,7 +13,7 @@ Aplicativo mobile desenvolvido com **React Native** e **Expo** para conectar doa
 
 ## Tecnologias
 - **React Native com Expo**: Desenvolvimento ágil e multiplataforma.
-- **Firebase**: Armazenamento de dados e autenticação.
+- **SupaBase**: Armazenamento de dados e autenticação.
 - **Google Maps API**: Mapeamento e localização de doações.
 
 ## Como Usar
