@@ -1,3 +1,3 @@
-export default{
-    Token:""
+export default {
+    Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlza2dvZXN1dWprbHJtZWdrZWJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEzNjk1MjEsImV4cCI6MjA1Njk0NTUyMX0.FW6JnudrFI2L6bdfBVNquYT3gscErKgwKpxNcxp-bxo"
 }
